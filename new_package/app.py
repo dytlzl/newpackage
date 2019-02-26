@@ -13,11 +13,11 @@ class gen_new_package():
         self.create_dir(self.package_name)
         with open(self.package_name+'/setup.py', mode='w') as file:
             file.write(templates.SETUP_PY)
+        with open(self.package_name+'/setup.cfg', mode='w') as file:
+            file.write(templates.SETUP_CFG.replace('%PACKAGE_NAME', self.package_name))
         child_path = self.package_name+'/'+self.package_name
         self.create_dir(child_path)
         with open(child_path+'/__init__.py', mode='w') as file:
-            pass
-        with open(child_path+'/__main__.py', mode='w') as file:
             pass
     
 
