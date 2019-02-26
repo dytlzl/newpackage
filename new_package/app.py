@@ -38,7 +38,7 @@ def main():
     try:
         gen_new_package(args[1])
     except DirectoryAlreadyExistsError:
-        print('Directory Alredy Exists.')
+        print('Directory Already Exists.')
 
 
 if __name__ == "__main__":

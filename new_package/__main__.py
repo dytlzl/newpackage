@@ -1,5 +1,5 @@
-from .app import main
+import new_package
 
 
 if __name__ == "__main__":
-    main()
+    new_package.main()
