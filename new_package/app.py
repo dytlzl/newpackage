@@ -1,6 +1,6 @@
 import sys
 import os
-from .templates import templates
+from templates import templates
 
 
 class gen_new_package():
