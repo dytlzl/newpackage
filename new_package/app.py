@@ -24,14 +24,21 @@ class gen_new_package():
     @staticmethod
     def create_dir(package_name):
         if os.path.exists(package_name):
-            print('%s already exists'%package_name)
+            raise DirectoryAlreadyExistsError
         else:
             os.mkdir(package_name)
 
 
+class DirectoryAlreadyExistsError(Exception):
+    pass
+
+
 def main():
     args = sys.argv
-    gen_new_package(args[1])
+    try:
+        gen_new_package(args[1])
+    except DirectoryAlreadyExistsError:
+        print('Directory Alredy Exists.')
 
 
 if __name__ == "__main__":
