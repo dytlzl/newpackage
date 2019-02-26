@@ -1,6 +1,6 @@
 import sys
 import os
-from templates import templates
+from .templates import templates
 
 
 class gen_new_package():
@@ -12,7 +12,7 @@ class gen_new_package():
     def main(self):
         self.create_dir(self.package_name)
         with open(self.package_name+'/setup.py', mode='w') as file:
-            file.write(templates)
+            file.write(templates.SETUP_PY)
         child_path = self.package_name+'/'+self.package_name
         self.create_dir(child_path)
         with open(child_path+'/__init__.py', mode='w') as file:
