@@ -1,2 +1,2 @@
-# new_package
+# newpackage
 Create new Python package.
