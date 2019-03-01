@@ -1,4 +1,4 @@
-class templates:
+class Templates:
     SETUP_PY = """from setuptools import setup
 
 

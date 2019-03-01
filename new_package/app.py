@@ -1,9 +1,9 @@
 import sys
 import os
-from .templates import templates
+from .constants import Templates
 
 
-class gen_new_package():
+class GenNewPackage():
     def __init__(self, package_name):
         self.package_name = package_name
         self.main()
@@ -12,11 +12,11 @@ class gen_new_package():
     def main(self):
         self.create_dir(self.package_name)
         with open(self.package_name+'/setup.py', mode='w') as file:
-            file.write(templates.SETUP_PY)
+            file.write(Templates.SETUP_PY)
         with open(self.package_name+'/README.md', mode='w') as file:
-            file.write(templates.README_MD.replace('%PACKAGE_NAME', self.package_name))
+            file.write(Templates.README_MD.replace('%PACKAGE_NAME', self.package_name))
         with open(self.package_name+'/setup.cfg', mode='w') as file:
-            file.write(templates.SETUP_CFG.replace('%PACKAGE_NAME', self.package_name))
+            file.write(Templates.SETUP_CFG.replace('%PACKAGE_NAME', self.package_name))
         child_path = self.package_name+'/'+self.package_name
         self.create_dir(child_path)
         with open(child_path+'/__init__.py', mode='w') as file:
@@ -38,7 +38,7 @@ class DirectoryAlreadyExistsError(Exception):
 def main():
     args = sys.argv
     try:
-        gen_new_package(args[1])
+        GenNewPackage(args[1])
     except DirectoryAlreadyExistsError:
         print('Directory Already Exists.')
 
