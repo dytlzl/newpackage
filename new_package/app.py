@@ -10,38 +10,29 @@ class GenNewPackage():
 
 
     def main(self):
-        self.create_dir(self.package_name)
-        with open(self.package_name+'/setup.py', mode='w') as file:
-            file.write(Templates.SETUP_PY)
-        with open(self.package_name+'/README.md', mode='w') as file:
-            file.write(Templates.README_MD.replace('%PACKAGE_NAME', self.package_name))
-        with open(self.package_name+'/setup.cfg', mode='w') as file:
-            file.write(Templates.SETUP_CFG.replace('%PACKAGE_NAME', self.package_name))
+        create_dir(self.package_name)
+        create_file(self.package_name+'/setup.py', Templates.SETUP_PY)
+        create_file(self.package_name+'/README.md', Templates.README_MD.replace('%PACKAGE_NAME', self.package_name))
+        create_file(self.package_name+'/setup.cfg', Templates.SETUP_CFG.replace('%PACKAGE_NAME', self.package_name))
         child_path = self.package_name+'/'+self.package_name
-        self.create_dir(child_path)
-        with open(child_path+'/__init__.py', mode='w') as file:
+        create_dir(child_path)
+        with open(child_path+'/__init__.py', mode='w'):
             pass
-    
-
-    @staticmethod
-    def create_dir(package_name):
-        if os.path.exists(package_name):
-            raise DirectoryAlreadyExistsError
-        else:
-            os.mkdir(package_name)
 
 
-class DirectoryAlreadyExistsError(Exception):
-    pass
+def create_dir(package_name):
+    if os.path.exists(package_name):
+        print('Directory Already Exists.')
+        sys.exit()
+    else:
+        os.mkdir(package_name)
+
+
+def create_file(filename, string):
+    with open(filename, mode='w') as file:
+        file.write(string)
 
 
 def main():
     args = sys.argv
-    try:
-        GenNewPackage(args[1])
-    except DirectoryAlreadyExistsError:
-        print('Directory Already Exists.')
-
-
-if __name__ == "__main__":
-    main()
+    GenNewPackage(args[1])
