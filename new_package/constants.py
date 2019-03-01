@@ -7,7 +7,7 @@ setup()"""
 name = %PACKAGE_NAME
 version = 0.0.0
 author = 
-author_email = mcgela@mcgela.work
+author_email =
 description = 
 long_description = file:README.md
 url = https://github.com/mcgela/
@@ -16,8 +16,6 @@ classifier =
     Development Status :: 1 - Planning
     Programming Language :: Python
     Programming Language :: Python :: 3
-    Programming Language :: Python :: 3.5
-    Programming Language :: Python :: 3.6
     Programming Language :: Python :: 3.7
 [options]
 zip_safe = False
