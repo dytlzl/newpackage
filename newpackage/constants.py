@@ -21,4 +21,4 @@ classifier =
 zip_safe = False
 packages = find:"""
     README_MD = """# %PACKAGE_NAME
-Made for me."""
+FOR MY OWN USE."""

@@ -3,11 +3,10 @@ import os
 from .constants import Templates
 
 
-class GenNewPackage():
+class GenNewPackage:
     def __init__(self, package_name):
         self.package_name = package_name
         self.main()
-
 
     def main(self):
         create_dir(self.package_name)
