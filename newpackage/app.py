@@ -34,4 +34,8 @@ def create_file(filename, string):
 
 def main():
     args = sys.argv
-    GenNewPackage(args[1])
+    try:
+        GenNewPackage(args[1])
+        print(args[1]+' generated.')
+    except IndexError:
+        print('Found no argument.')
